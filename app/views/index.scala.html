@@ -1,0 +1,30 @@
+@(nameItems: List[NameItem], searchForm: Form[String], createdOn: String, suppressResults: Boolean, searchFor:String = "")
+
+@import helper._
+
+@main("srgBuddy by monnef") {
+        <div class="container">
+            @form(routes.Application.search) {
+                @inputText(searchForm("q"), 'placeholder -> "Search query", '_label -> "")
+                <input type="submit" value=">" class="depth button">
+            }
+        </div>
+
+        @if(!suppressResults){
+        <div class="container">
+            <h2>Results for "@searchFor"</h2>
+            @nameItems.size result(s)
+            <ul>
+                @nameItems.map { item =>
+                    <li>
+                        @item.notchName, @item.srgName, @item.deobfuscatedName
+                    </li>
+                }
+            </ul>
+        </div>
+        }
+
+        <div class="container">
+        <p id="info-text">Inner DB created on @createdOn.</p>
+        </div>
+}

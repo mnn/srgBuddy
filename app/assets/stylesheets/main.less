@@ -1,0 +1,128 @@
+body{
+    background: black;
+    color: white;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.center{
+    text-align: center;
+}
+
+#main {
+    background: #782165;
+    margin: 15px auto 5px auto;
+    text-align: left;
+    width: 1024px;
+    //border: 2px solid white;
+    padding: 1px 16px 16px 16px;
+    //border-radius: 5px;
+    box-shadow: 4px -4px 2px -3px rgba(0,0,0,0.4);
+    box-shadow: 0 0 4px 5px #782165;
+}
+
+.depth {
+    display: block;
+    border: 1px solid silver;
+    background: linear-gradient(#eee, #fff);
+    transition: all 0.3s ease-out;
+    padding: 5px;
+    color: #555;
+}
+
+.button {
+    height: 39px;
+}
+
+@gray: #eee;
+@darkGray: #777;
+
+.text-gray {
+    color: @gray;
+}
+
+#info-text {
+    color: @darkGray;
+    font-size: 60%;
+    margin-top: 32px;
+}
+
+#q {
+    .depth;
+    height: 26px;
+    margin-right: 5px;
+    background: linear-gradient(#111, #000);
+    color: @gray;
+    border: 1px solid #555;
+}
+
+dl {
+    display: inline;
+}
+
+dd {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.container {
+    overflow: hidden;
+}
+
+a {
+    color: #fcf;
+    color: white;
+    text-decoration: none;
+}
+
+#acc {
+    margin: 15px auto 5px auto;
+    text-align: left;
+    width: 1024px;
+    padding: 1px 16px 16px 16px;
+    padding: 8px;
+//    background: #111;
+//    border: 1px solid #222;
+}
+
+#header {
+    a {
+        color: #38035D;
+        color: white;
+    }
+    img {
+        margin-left: 10px;
+        margin-right: 10px;
+        vertical-align: text-bottom;
+    }
+    #appText {
+        font-size: 300%;
+        font-weight: bold;
+    }
+}
+
+
+#tabs > ul {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #333333;
+}
+
+#tabs {
+    border: none;
+}
+
+.ui-tabs .ui-tabs-panel {
+    background: url("images/ui-bg_diamond-ripple_20_000000_22x22.png") repeat scroll 50% 50% #000000;
+    border: 1px solid #333;
+    border-top: none;
+    border-right: 1px solid #666;
+    border-bottom: 1px solid #666;
+}
+
+.ui-widget-content {
+    background: none;
+}
+
