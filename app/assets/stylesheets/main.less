@@ -29,12 +29,6 @@ body{
     color: #555;
 }
 
-#searchButton {
-    height: 39px;
-    transition: background-image 0.3s ease-in !important;
-//    background-color: transparent;
-}
-
 @gray: #eee;
 @darkGray: #777;
 
@@ -95,17 +89,32 @@ a {
 //    border: 1px solid #222;
 }
 
+// #38035d;
+@focusColor: white;
+@linkColor: #CEA5EA;
+
 #header {
     a {
-        color: #38035D;
-        color: white;
-        font-family: Minercraftory;
+        color: @linkColor !important;
+        font-family: Minercraftory, Halvetica, sans-serif;
         border: none;
+    }
+    a:hover{
+        color: @focusColor !important;
     }
     img {
         margin-left: 10px;
         margin-right: 10px;
         vertical-align: text-bottom;
+    }
+    #logo1 {
+        position: absolute;
+        left: 0px;
+        top: -39px;
+        //vertical-align: bottom;
+    }
+    #logoWrapper{
+        position: relative;
     }
     #appText {
         font-size: 300%;
@@ -113,17 +122,33 @@ a {
     }
 }
 
+.imgFade {
+    opacity: 1;
+    transition: opacity 1s linear;
+}
+
 #tabs > ul {
     background: none;
     border: none;
     border-bottom: 1px solid #333333;
+
+    font-family: Russo One, Arial;
+    font-size: 160%;
+
+    @pt: 1px;
+    @pr: 10px;
+
+    a, a:visited {
+        .linkLike;
+        padding: @pt @pr @pt @pr;
+    }
+    a:hover {
+        .linkLikeHover;
+    }
     a {
         border-bottom: none;
-        transition: none;
     }
     li {
-        //background: red !important;
-        transition: background-image 0.3s ease-in !important;
     }
 }
 
@@ -159,13 +184,44 @@ a {
   src: url('../fonts/minercraftory.woff');
 }
 
-a {
+@font-face
+{
+  font-family: 'Steelfish';
+  src: url('../fonts/steelfish_regular.woff');
+}
+
+@font-face
+{
+  font-family: 'Russo One';
+  src: url('../fonts/russo_one.woff');
+}
+
+
+.linkLike {
+    color: @linkColor !important;
+    transition: all 0.2s ease-in-out !important;
+    transition-properties: color, border-bottom;
+}
+
+.linkLikeHover {
+     color: @focusColor !important;
+}
+
+a, a:visited {
+    .linkLike;
     border-bottom: 1px dotted gray;
-    //transition: border-bottom 0.3s ease-out;
-    transition: color,border-bottom 0.3s ease-out;
 }
 a:hover {
+    .linkLikeHover;
      border-bottom: 1px solid white;
+}
+
+#searchButton {
+    .linkLike;
+    height: 38px;
+    &:hover{
+        color: @focusColor !important;
+    }
 }
 
 .ui-state-hover,
