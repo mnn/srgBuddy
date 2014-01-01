@@ -6,7 +6,7 @@
         <div class="container">
             @form(routes.Application.search) {
                 @inputText(searchForm("q"), 'placeholder -> "Search query", '_label -> "")
-                <input type="submit" value=">" class="depth button">
+                <input type="submit" value=">" id="searchButton" class="depth">
             }
         </div>
 

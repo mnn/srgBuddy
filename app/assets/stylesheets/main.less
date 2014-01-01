@@ -1,7 +1,7 @@
 body{
     background: black;
     color: white;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Helvetica, Arial, sans-serif;
 }
 
 .center{
@@ -24,13 +24,15 @@ body{
     display: block;
     border: 1px solid silver;
     background: linear-gradient(#eee, #fff);
-    transition: all 0.3s ease-out;
+    //transition: all 0.3s ease-out;
     padding: 5px;
     color: #555;
 }
 
-.button {
+#searchButton {
     height: 39px;
+    transition: background-image 0.3s ease-in !important;
+//    background-color: transparent;
 }
 
 @gray: #eee;
@@ -53,6 +55,11 @@ body{
     background: linear-gradient(#111, #000);
     color: @gray;
     border: 1px solid #555;
+    transition: border 0.2s ease-in;
+}
+
+#q:focus, #q:hover{
+    border: 1px #999 solid;
 }
 
 dl {
@@ -92,6 +99,8 @@ a {
     a {
         color: #38035D;
         color: white;
+        font-family: Minercraftory;
+        border: none;
     }
     img {
         margin-left: 10px;
@@ -108,6 +117,14 @@ a {
     background: none;
     border: none;
     border-bottom: 1px solid #333333;
+    a {
+        border-bottom: none;
+        transition: none;
+    }
+    li {
+        //background: red !important;
+        transition: background-image 0.3s ease-in !important;
+    }
 }
 
 #tabs {
@@ -136,3 +153,27 @@ a {
     }
 }
 
+@font-face
+{
+  font-family: 'Minercraftory';
+  src: url('../fonts/minercraftory.woff');
+}
+
+a {
+    border-bottom: 1px dotted gray;
+    //transition: border-bottom 0.3s ease-out;
+    transition: color,border-bottom 0.3s ease-out;
+}
+a:hover {
+     border-bottom: 1px solid white;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	border: 1px solid #4e0584;
+    background: lighten(#38035d, 30%) url(images/ui-bg_inset-soft_30_38035d_L25_1x100.png) 50% 50% repeat-x !important;
+}

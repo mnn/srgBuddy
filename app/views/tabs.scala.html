@@ -11,6 +11,8 @@
 
 <ul>
 @for(link <- data) {
-    @oneLink(link._1, link._2, link._3)
+    @if(link._1.nonEmpty) {
+        @oneLink(link._1, link._2, link._3)
+    }
 }
 </ul>
