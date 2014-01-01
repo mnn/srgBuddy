@@ -1,0 +1,16 @@
+@(data: List[(String, String, String)])
+
+@oneLink(title: String, url: String, comment: String) = {
+        <li>
+        <a href="@url">@title</a>
+        @if(comment.nonEmpty){
+            - @comment
+        }
+        </li>
+}
+
+<ul>
+@for(link <- data) {
+    @oneLink(link._1, link._2, link._3)
+}
+</ul>

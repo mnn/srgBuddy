@@ -61,6 +61,7 @@ dl {
 
 dd {
     float: left;
+    margin: 0;
 }
 
 .clear {
@@ -103,7 +104,6 @@ a {
     }
 }
 
-
 #tabs > ul {
     background: none;
     border: none;
@@ -124,5 +124,15 @@ a {
 
 .ui-widget-content {
     background: none;
+}
+
+.customList ul {
+    list-style: none outside none;
+    padding-left: 0;
+    margin: 0;
+
+    li:before{
+        content: "\0BB \020";
+    }
 }
 
