@@ -92,33 +92,75 @@ a {
 // #38035d;
 @focusColor: white;
 @linkColor: #CEA5EA;
+@littleHeaderWidth: 415px;
 
 #header {
-    a {
-        color: @linkColor !important;
+    height: 105px;
+    #appText {
         font-family: Minercraftory, Halvetica, sans-serif;
+        a {
+            color: @linkColor !important;
+            color: white !important;
+        }
+        a:hover {
+            color: @focusColor !important;
+            color: @linkColor !important;
+        }
+    }
+    a {
         border: none;
     }
-    a:hover{
-        color: @focusColor !important;
-    }
     img {
-        margin-left: 10px;
-        margin-right: 10px;
-        vertical-align: text-bottom;
     }
     #logo1 {
         position: absolute;
         left: 0px;
-        top: -39px;
-        //vertical-align: bottom;
+    }
+    #logo2 {
+    }
+    #logo1, #logo2 {
+        margin-top: 5px;
+        margin-left: 10px;
     }
     #logoWrapper{
         position: relative;
+        float: left;
     }
     #appText {
         font-size: 300%;
         font-weight: bold;
+        float: right;
+    }
+    #littleHeader{
+        //margin: auto;
+        width: @littleHeaderWidth;
+    }
+    #subTitle{
+
+        position: absolute;
+        width: @littleHeaderWidth;
+        left: 0;
+        top: 80px;
+        font-family: SteelFish, arial !important;
+        font-size: 140%;
+        #subTitleCreated{
+            color: @darkGray;
+            font-size: 90%;
+            //margin-left: 150px;
+            float:right;
+            //margin: auto;
+            //margin-right: 7px;
+            margin-top: 5px;
+            a {
+                color: lighten(@darkGray, 10%) !important;
+            }
+            a:hover {
+                color: lighten(@darkGray, 30%) !important;
+            }
+        }
+        #subTitleCont {
+            margin-left: 100px;
+        }
     }
 }
 
