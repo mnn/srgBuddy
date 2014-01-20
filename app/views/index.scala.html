@@ -1,4 +1,4 @@
-@(nameItems: List[NameItem], searchForm: Form[String], createdOn: String, suppressResults: Boolean, searchFor:String = "")
+@(nameItems: Seq[tk.monnef.mcmapper.MappingObject], searchForm: Form[String], createdOn: String, suppressResults: Boolean, searchFor:String = "")
 
 @import helper._
 
@@ -17,7 +17,7 @@
             <ul>
                 @nameItems.map { item =>
                     <li>
-                        @item.notchName, @item.srgName, @item.deobfuscatedName
+                        @item.toString
                     </li>
                 }
             </ul>

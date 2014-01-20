@@ -4,7 +4,7 @@ import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
-import models.NameItem
+import models.{MappingDatabaseHolder, NameItem}
 
 object Application extends Controller {
 
@@ -24,7 +24,7 @@ object Application extends Controller {
         searchForm.bindFromRequest.fold(
           errors => BadRequest(views.html.index(List.empty, errors, "", true)),
           q => {
-            val searchResults = NameItem.searchPartials(q, MAX_RESULTS)
+            val searchResults = MappingDatabaseHolder.db.searchAny(q) //NameItem.searchPartials(q, MAX_RESULTS)
             Ok(views.html.index(searchResults, searchForm.fill(q), NameItem.testListCreatedOn(), false, q))
           }
         )

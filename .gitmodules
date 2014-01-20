@@ -1,0 +1,3 @@
+[submodule "mcMapperLib"]
+	path = mcMapperLib
+	url = git@github.com:mnn/mcMapperLib.git
