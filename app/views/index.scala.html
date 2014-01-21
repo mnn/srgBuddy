@@ -1,8 +1,8 @@
-@(nameItems: Seq[tk.monnef.mcmapper.MappingObject], searchForm: Form[String], createdOn: String, suppressResults: Boolean, searchFor:String = "")
+@(nameItems: Seq[tk.monnef.mcmapper.MappingObject], searchForm: Form[String], createdOn: String, suppressResults: Boolean, thisURL:String, searchFor:String = "")
 
 @import helper._
 
-@main("srgBuddy") {
+@main("srgBuddy", thisURL) {
         <div class="container">
             @form(routes.Application.search) {
                 @inputText(searchForm("q"), 'placeholder -> "Search query", '_label -> "")

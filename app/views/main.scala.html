@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String, thisURL: String)(content: Html)
 
 <!DOCTYPE html>
 
@@ -12,6 +12,8 @@
         <script src="@routes.Assets.at("javascripts/jquery-ui-1.10.3.custom.min.js")" type="text/javascript"></script>
         <script>
 $(function() {
+    $("#acc").css("visibility", "visible");
+    $("#acc a").css("visibility", "visible");
     $("#tabs").tabs();
     $("input[type=submit], button").button();
     $("#logo1").dblclick(function(){
@@ -24,6 +26,12 @@ $(function() {
         </script>
     </head>
     <body>
+        <noscript>
+            <div id="nojs">
+                Please enable (or install browser which supports) JavaScript - e.g. <a href="http://www.mozilla.org/firefox">Firefox</a> or <a href="http://google.com/chrome ">Chrome</a>.<br>
+                Then <a href="@thisURL">reload</a> this page.
+            </div>
+        </noscript>
         <div id="pageWrapper" class="center">
             <div id="acc" class="xui-widget-content">
                 <div id="tabs">
