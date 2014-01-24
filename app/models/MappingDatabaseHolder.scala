@@ -18,5 +18,5 @@ object MappingDatabaseHolder {
 
   def db: MappingDatabaseSearchable = innerDb.db
 
-  def dbCreatedOn = innerDb.createdOn
+  def dbCreatedOn: String = innerDb.createdOn
 }
