@@ -1,0 +1,115 @@
+@(nameItems: Seq[tk.monnef.mcmapper.MappingObject], searchFor:String = "")
+
+@import tk.monnef.mcmapper._
+
+@renderFull(in: PathItem) = {
+    @if(in.equals(PathItem.empty)){
+        <span title="missing">✗</span>
+    }else{
+        <span class="rFullPath">@in.path/</span><span class="rFullShort">@in.short</span>
+    }
+}
+
+@renderCaption(in: String, title: String = "") = {
+    <span class="rCapt" title="@title">@in</span>
+}
+
+@getTitleText(item: MappingObject) = @{
+        if(item.isExtended){
+            if(item.asExtended.full.equals(PathItem.empty)){
+                item.asExtended.srg.short
+            }else{
+                item.full.short
+            }
+        }else{
+            item.full.short
+        }
+}
+
+@renderExtended(item: ExtendedMappingObject) = {
+    <span class="rGroup">
+        @renderCaption("srg:", "searge name")
+        <span class="rSrg">
+            @if(item.full.equals(PathItem.empty)){
+                <span class="rSrgPath">@item.srg.path/</span><span class="rSrgShort">@item.srg.short</span>
+            }else{
+                <span class="rSrgShort">@item.srg.short</span>
+            }
+        </span>
+    </span>
+
+    <span class="rGroup">
+        @renderCaption("obf:", "obfuscated aka notch name")
+        <span class="rObf">@item.obf.whole</span>
+    </span>
+
+    @*
+    @if(!item.comment.isEmpty){
+        <span class="rGroup">
+            @renderCaption("comment:")
+            <span class="rComment">@item.comment</span>
+        </span>
+    }
+    *@
+}
+
+@renderItem(item: MappingObject, idx: Integer) = {
+    <div class="result" id="r@idx">
+        <span class="rMore" title="Show details" id="l@idx"><a href="#">▷</a></span>
+        <script>
+            var useWindow = false;
+            if(useWindow){
+                $(function(){
+                    $("#d@idx").dialog({ autoOpen: false, width: 1024, width: 512, modal: true, title: "Object \"@getTitleText(item)\"" });
+                    $("#l@idx").click(function(){
+                        $("#d@idx").dialog("open");
+                    });
+                });
+            }else{
+                $(function(){
+                    $("#l@idx").click(function(){
+                        $("#d@idx").toggle("blind");
+                        return false;
+                    });
+                    $("#d@idx").hide();
+                });
+            }
+        </script>
+        @* ℹ◳⌹▷❔ *@
+        <span class="rGroup">
+            @renderCaption("full:", "translated")
+            <span class="rFull">@renderFull(item.full)</span>
+        </span>
+        @if(item.isExtended){
+            @renderExtended(item.asExtended)
+        }else{
+            <span class="rGroup">
+                @renderCaption("obf:", "obfuscated aka notch name")
+                <span class="rObf">@item.obf.whole</span>
+            </span>
+        }
+        <div id="d@idx" class="rInfoDialog">
+            @dialogRow("Full", item.full.whole)
+            @if(item.isExtended) {@dialogRow("Srg", item.asExtended.srg.whole)}
+            @dialogRow("Obf", item.obf.whole)
+            @if(item.isExtended) {@dialogRow("Comment", item.asExtended.comment, true)}
+            @dialogRow("Raw", item.toString, true)
+        </div>
+    </div>
+}
+
+<h2>Found @nameItems.size result(s) for "@searchFor"</h2>
+    @nameItems.zipWithIndex.map { item =>
+        @renderItem(item._1, item._2)
+    }
+
+@dialogRow(title: String, text: String, useTextArea: Boolean = false) = {
+    <div class="rDialogRow">
+        <div class="rDialogCapt">@title:</div>
+        @if(useTextArea){
+            <textarea>@text</textarea>
+        }else{
+            <input type="text" value="@text">
+        }
+    </div>
+}

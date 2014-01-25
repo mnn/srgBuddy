@@ -1,6 +1,7 @@
 @(nameItems: Seq[tk.monnef.mcmapper.MappingObject], searchForm: Form[String], createdOn: String, suppressResults: Boolean, thisURL:String, searchFor:String = "")
 
 @import helper._
+@import tk.monnef.mcmapper.MappingObject
 
 @main("srgBuddy", thisURL) {
         <div class="container">
@@ -12,15 +13,7 @@
 
         @if(!suppressResults){
         <div class="container">
-            <h2>Results for "@searchFor"</h2>
-            @nameItems.size result(s)
-            <ul>
-                @nameItems.map { item =>
-                    <li>
-                        @item.toString
-                    </li>
-                }
-            </ul>
+            @results(nameItems, searchFor)
         </div>
         }
 

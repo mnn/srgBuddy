@@ -16,7 +16,7 @@ object Application extends Controller {
     Redirect(routes.Application.search)
   }
 
-  val MAX_RESULTS = 10
+  val MAX_RESULTS = 15
 
   def search = Action {
     implicit request =>
@@ -24,8 +24,9 @@ object Application extends Controller {
         searchForm.bindFromRequest.fold(
           errors => BadRequest(views.html.index(List.empty, errors, "", true, request.uri)),
           q => {
-            val searchResults = MappingDatabaseHolder.db.searchAny(q) //NameItem.searchPartials(q, MAX_RESULTS)
-            Ok(views.html.index(searchResults, searchForm.fill(q), NameItem.testListCreatedOn(), false, request.uri, q))
+            val processedQ = q.trim
+            val searchResults = MappingDatabaseHolder.db.searchAny(processedQ).take(MAX_RESULTS) //NameItem.searchPartials(q, MAX_RESULTS)
+            Ok(views.html.index(searchResults, searchForm.fill(processedQ), NameItem.testListCreatedOn(), false, request.uri, processedQ))
           }
         )
       } else {

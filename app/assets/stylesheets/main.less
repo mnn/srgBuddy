@@ -45,6 +45,23 @@ body{
     margin-top: 32px;
 }
 
+.grayInput {
+    .depth;
+    background: linear-gradient(#111, #000);
+    color: @gray;
+    border: 1px solid #555;
+    transition: border 0.2s ease-in;
+    height: 26px;
+}
+
+.grayInput:focus, .grayInput:hover{
+    border: 1px #999 solid;
+}
+
+input[type=text], textarea {
+    .grayInput;
+}
+
 #q {
     .depth;
     height: 26px;
@@ -197,6 +214,14 @@ a {
 
 #tabs {
     border: none;
+    background: none;
+}
+
+.bevelBorder {
+    border: 1px solid #333;
+    border-right: 1px solid #666;
+    border-bottom: 1px solid #666;
+    border-top: 1px solid #333333;
 }
 
 .ui-tabs .ui-tabs-panel {
@@ -208,7 +233,7 @@ a {
 }
 
 .ui-widget-content {
-    background: none;
+    // background: none;
 }
 
 .customList ul {
@@ -285,7 +310,7 @@ a:hover {
     color: red;
     background: white;
     font-weight: bold;
-    text-size: 200%;
+    font-size: 200%;
     padding: 20px;
     text-align: center;
     a:hover {
@@ -297,4 +322,57 @@ form#paypal {
     display: inline;
     margin-right: -10px;
     vertical-align: -5px;
+}
+
+.result {
+    .rGroup {
+        white-space: nowrap;
+    }
+    .rCapt {
+        color: @darkGray;
+    }
+    .rInfoDialog {
+        margin-left: 2%;
+        padding: 0.5%;
+        .bevelBorder;
+        background: black;
+        margin-bottom: 2%;
+        margin-top: 0.5%;
+
+        input, textarea {
+            display: inline;
+            height: 18px;
+            margin-bottom: 0.5%;
+            font-size: 70%;
+            width: 70%;
+        }
+
+        textarea {
+            height: 30%;
+        }
+
+        .rDialogCapt {
+            width: 10%;
+            float: left;
+        }
+    }
+    .rMore {
+        //font-size: 130%;
+        a {
+            border-bottom: none;
+        }
+    }
+    .rComment {
+        white-space: normal;
+    }
+
+    .rFull, .rSrg, .rObf {
+        white-space: normal;
+    }
+    .rSrgPath, .rFullPath {
+        .rPath;
+    }
+    .rPath {
+        color: @darkGray;
+    }
 }
