@@ -10,10 +10,10 @@ libraryDependencies ++= Seq(
   cache
 )     
 
+libraryDependencies += "net.sf.opencsv" % "opencsv" % "2.3"
+
 play.Project.playScalaSettings
 
 lazy val srgbuddy = project.in(file("."))
-    .aggregate(mcMapperLib)
-    .dependsOn(mcMapperLib)
 
 lazy val mcMapperLib = project

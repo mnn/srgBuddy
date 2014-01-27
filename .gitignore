@@ -17,3 +17,4 @@ dist
 /conf/application.conf
 /resources/MCPBot.log
 /conf/mcp
+/lib/*
