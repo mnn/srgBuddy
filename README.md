@@ -7,7 +7,7 @@ It's a *work in progress*. It works, but it lacks a lot of functionality (and ha
 
 ![Screenshot](http://i.imgur.com/Q5UIIhW.png)
 
-In the future I'd like to run this on some free hosting, currently I'm waiting for a response from MCP guys (it's getting a bit long - over three weeks, I'm slowly losing hope :( ).
+I wanted to run this on some free hosting, but MCP guys are ignoring me. I tried sending two e-mails (from different address, in case of spam filter; 2.1. 2014 and 21.1. 2014), both are unanswered to this very day. And I though MCP guys were nice :(.
 
 License
 -------
